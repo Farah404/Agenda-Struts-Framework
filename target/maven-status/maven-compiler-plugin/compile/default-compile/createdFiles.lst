@@ -1,0 +1,9 @@
+com\axyus\strutsexample\bo\Address.class
+com\axyus\strutsexample\action\AddressAction.class
+com\axyus\strutsexample\bll\AgendaManager.class
+com\axyus\strutsexample\utils\Utils.class
+com\axyus\strutsexample\form\AddressForm.class
+com\axyus\strutsexample\action\CustomerAction.class
+com\axyus\strutsexample\utils\JdbcUtils.class
+com\axyus\strutsexample\form\CustomerForm.class
+com\axyus\strutsexample\bo\Customer.class

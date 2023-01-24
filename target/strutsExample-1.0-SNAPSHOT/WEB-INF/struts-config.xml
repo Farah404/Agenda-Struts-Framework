@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="addressForm" type="com.axyus.strutsexample.form.AddressForm" />
+        <form-bean name="customerform" type="com.axyus.strutsexample.form.CustomerForm" />
+    </form-beans>
+
+
+    <action-mappings>
+        <action input="/createAddress.jsp" 
+                name="addressForm" 
+                path="/createAddress"
+                type="com.axyus.strutsexample.action.AddressAction">
+            <forward name="addressSuccess" path="/addressSuccess.jsp" />
+        </action>
+        <action input="/createCustomer.jsp" 
+                name="customerform" 
+                path="/createCustomer"
+                type="com.axyus.strutsexample.action.CustomerAction">
+            <forward name="customerSuccess" path="/customerSuccess.jsp" />
+        </action>
+    </action-mappings>
+    
+    <message-resources parameter="com.axyus.strutsexample/action/ApplicationResource" />
+
+</struts-config>
