@@ -30,7 +30,7 @@ public class AddressAction extends DispatchAction {
     public ActionForward addAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws IOException, SQLException {
         System.out.println("Add Address Page");
-        return mapping.findForward("addAddress");
+        return mapping.findForward("addAddressBis");
     }
 
     //Saves the added address
@@ -55,7 +55,7 @@ public class AddressAction extends DispatchAction {
             throws SQLException, IOException {
         System.out.println("Update Address Page");
         utils.initialize();
-        int addressId = Integer.parseInt(request.getParameter("addressId"));
+        Integer addressId = Integer.parseInt(request.getParameter("addressId"));
         Address existingAddress = agendaManager.findAddressbyId(addressId);
         request.setAttribute("existingAddress", existingAddress);
         //Used form bean class methods to fill the form input elements with selected address values
@@ -66,7 +66,7 @@ public class AddressAction extends DispatchAction {
         af.setCity(existingAddress.getCity());
         af.setPostalCode(existingAddress.getPostalCode());
         af.setCountry(existingAddress.getCountry());
-        return mapping.findForward("editaddress");
+        return mapping.findForward("editAddressBis");
     }
 
     //Saves the updated address in the database
@@ -86,7 +86,7 @@ public class AddressAction extends DispatchAction {
         return new ActionForward("/showaddresses.do", true);
     }
 
-    //Saves the updated address in the database
+    //Delete address from database
     public ActionForward deleteAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         System.out.println("Delete Address");

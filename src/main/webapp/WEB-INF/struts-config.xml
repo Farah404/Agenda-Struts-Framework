@@ -9,6 +9,7 @@
     <!-- Form Bean Definitions -->
     <form-beans>
         <form-bean name="AddressForm" type="com.axyus.agendastruts.form.AddressForm"/>
+        <form-bean name="CustomerForm" type="com.axyus.agendastruts.form.CustomerForm"/>
     </form-beans>
     
     <!--  Action Mapping Definitions  -->
@@ -19,6 +20,12 @@
                 scope="session">
             <forward name="success" path="/WEB-INF/jsp/addresses/addresses.jsp"/>
         </action>
+        <action path="/showcustomers"
+                type="com.axyus.agendastruts.action.ShowCustomers"
+                validate="false"
+                scope="session">
+            <forward name="success" path="/WEB-INF/jsp/customers/customers.jsp"/>
+        </action>
  
         <!-- Example of Struts Dispatch Action : has the extra attribute parameter-->
         <action path="/addressaction"
@@ -27,10 +34,22 @@
                 name="AddressForm"
                 validate="false"
                 scope="session">
-            <forward name="addAddress" path="/WEB-INF/jsp/addresses/addaddress.jsp"/>
-            <forward name="editAddress" path="/WEB-INF/jsp/addresses/editaddress.jsp"/>
+            <forward name="addAddressBis" path="/WEB-INF/jsp/addresses/addaddress.jsp"/>
+            <forward name="editAddressBis" path="/WEB-INF/jsp/addresses/editaddress.jsp"/>
             <forward name="deleteAddress" path="/WEB-INF/jsp/addresses/deleteaddress.jsp"/>
         </action>
+        
+        <action path="/customeraction"
+                type="com.axyus.agendastruts.action.CustomerAction"
+                parameter="actionMethod"
+                name="CustomerForm"
+                validate="false"
+                scope="session">
+            <forward name="addCustomerBis" path="/WEB-INF/jsp/customers/addcustomer.jsp"/>
+            <forward name="editCustomerBis" path="/WEB-INF/jsp/customers/editcustomer.jsp"/>
+            <forward name="deleteCustomer" path="/WEB-INF/jsp/customers/deletecustomer.jsp"/>
+        </action>
+        
         <action
             path="/index"
             type="org.apache.struts.actions.ForwardAction"

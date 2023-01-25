@@ -27,7 +27,7 @@
             }
             .column {
                 float: left;
-                width: 33.33%;
+                width: 50%;
                 padding: 10px;
                 height: 300px; /* Should be removed. Only for demonstration */
             }
@@ -84,7 +84,7 @@
                     <p class="title">View, update and delete</p>
                     <div style="margin: 24px 0;">
                     </div>
-                    <p><button><a href="/all-customers">Check Customers</a></button></p>
+                    <p><button><a href="showcustomers.do">Check Customers</a></button></p>
                 </div>
 
             </div>
@@ -97,18 +97,6 @@
                     <div style="margin: 24px 0;">
                     </div>
                     <p><button><a href="showaddresses.do">Check Addresses</a></button></p>
-                </div>
-
-            </div>
-            <div class="column">
-
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8RSaCMCTAXNasW_pKiOxboRvqjZmPCmbcsNc-cQw1SYgb2hPERANwLeotZEfMqV4oSxM&usqp=CAU" style="width:100%">
-                    <h1>Manage your Agenda</h1>
-                    <p class="title">Add data</p>
-                    <div style="margin: 24px 0;">
-                    </div>
-                    <p><button><a href="/manage-agenda">Manage Agenda</a></button></p>
                 </div>
 
             </div>

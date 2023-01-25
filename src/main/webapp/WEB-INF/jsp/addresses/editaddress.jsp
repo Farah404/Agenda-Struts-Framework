@@ -5,11 +5,11 @@
 <html>
     <body>
         <p><b>Struts Example - Simple Agenda App</b></p>
-        <b>Delete Address</b>
+        <b>Update Address</b>
     <html:form>
         <table style="background-color:#82CAFA;">
             <tr>
-                <td>Address Id</td>
+                <td>Address ID</td>
                 <td><html:text property="addressId" disabled="true"/></td>
             </tr>
             <tr>
@@ -29,7 +29,7 @@
                 <td><html:text property="postalCode"/></td>
             </tr>
             <tr>
-                <td>COuntry</td>
+                <td>Country</td>
                 <td><html:text property="country"/></td>
             </tr>
         </table>
