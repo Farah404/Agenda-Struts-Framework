@@ -1,7 +1,0 @@
-com\axyus\agendastruts\bll\AgendaManager.class
-com\axyus\agendastruts\bo\Address.class
-com\axyus\agendastruts\action\ShowAddresses.class
-com\axyus\agendastruts\utils\JdbcUtils.class
-com\axyus\agendastruts\form\AddressForm.class
-com\axyus\agendastruts\utils\Utils.class
-com\axyus\agendastruts\action\AddressAction.class
