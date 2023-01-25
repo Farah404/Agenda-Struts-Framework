@@ -1,9 +1,7 @@
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\utils\JdbcUtils.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\bll\AgendaManager.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\action\AddressAction.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\form\CustomerForm.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\bo\Customer.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\utils\Utils.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\form\AddressForm.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\bo\Address.java
-C:\devel\NetBeansProjects\strutsExample\src\main\java\com\axyus\strutsexample\action\CustomerAction.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\action\ShowAddresses.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\bo\Address.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\action\AddressAction.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\form\AddressForm.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\utils\Utils.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\utils\JdbcUtils.java
+C:\devel\NetBeansProjects\agendaStruts - Copie\src\main\java\com\axyus\agendastruts\bll\AgendaManager.java

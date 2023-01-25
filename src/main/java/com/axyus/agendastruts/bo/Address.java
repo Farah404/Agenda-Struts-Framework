@@ -43,7 +43,7 @@ public class Address {
         this.country = JdbcUtils.getStringColumnIfExists(rs,"country");
     }
 
-    public int getAddressId() {
+    public Integer getAddressId() {
         return addressId;
     }
 
@@ -51,7 +51,7 @@ public class Address {
         this.addressId = addressId;
     }
 
-    public int getStreetNumber() {
+    public Integer getStreetNumber() {
         return streetNumber;
     }
 

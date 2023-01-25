@@ -8,49 +8,91 @@ import com.axyus.agendastruts.bo.Address;
 import com.axyus.agendastruts.bll.AgendaManager;
 import com.axyus.agendastruts.form.AddressForm;
 import com.axyus.agendastruts.utils.Utils;
+import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
 
 /**
  *
  * @author farah.gauduin
  */
-public class AddressAction extends Action {
+public class AddressAction extends DispatchAction {
 
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-        HttpSession ses = request.getSession(true);
-        AddressForm addressForm = (AddressForm) form;
-        Integer streetNumber = addressForm.getStreetNumber();
-        String streetName = addressForm.getStreetName();
-        String city = addressForm.getCity();
-        String postalCode = addressForm.getPostalCode();
-        String country = addressForm.getCountry();
+    Utils utils = new Utils();
+    AgendaManager agendaManager = new AgendaManager();
+
+    //Shows the add address page
+    public ActionForward addAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+            throws IOException, SQLException {
+        System.out.println("Add Address Page");
+        return mapping.findForward("addAddress");
+    }
+
+    //Saves the added address
+    public ActionForward saveAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        AddressForm af = (AddressForm) form;
+        //Used form bean class methods to get values of form input elements
+        Integer streetNumber = af.getStreetNumber();
+        String streetName = af.getStreetName();
+        String city = af.getCity();
+        String postalCode = af.getPostalCode();
+        String country = af.getCountry();
         Integer addressId = 0;
         Address address = new Address(addressId, streetNumber, streetName, city, postalCode, country);
-        Utils utils = new Utils();
         utils.initialize();
-        AgendaManager agendaManager = new AgendaManager();
         agendaManager.createAddress(address);
-        ses.setAttribute("streetNumber", streetNumber);
-        ses.setAttribute("streetName", streetName);
-        ses.setAttribute("city", city);
-        ses.setAttribute("postalCode", postalCode);
-        ses.setAttribute("country", country);
+        return new ActionForward("/showaddresses.do", true);
+    }
 
-        if (streetNumber.equals("") || streetName.equals("") || city.equals("")
-                || postalCode.equals("") || country.equals("")) {
-            return mapping.findForward("error");
-        }
-        return mapping.findForward("addressSuccess");
+    //Shows the update page
+    public ActionForward editAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+            throws SQLException {
+        System.out.println("Update Address Page");
+        int addressId = Integer.parseInt(request.getParameter("addressId"));
+        Address existingAddress = agendaManager.findAddressbyId(addressId);
+        request.setAttribute("existingAddress", existingAddress);
+        //Used form bean class methods to fill the form input elements with selected address values
+        AddressForm af = (AddressForm) form;
+        af.setAddressId((Integer) existingAddress.getAddressId());
+        af.setStreetNumber((Integer) existingAddress.getStreetNumber());
+        af.setStreetName(existingAddress.getStreetName());
+        af.setCity(existingAddress.getCity());
+        af.setPostalCode(existingAddress.getPostalCode());
+        af.setCountry(existingAddress.getCountry());
+        return mapping.findForward("editaddress");
+    }
 
+    //Saves the updated address in the database
+    public ActionForward updateAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        System.out.println("Update Address");
+        AddressForm af = (AddressForm) form;
+        Integer streetNumber = af.getStreetNumber();
+        String streetName = af.getStreetName();
+        String city = af.getCity();
+        String postalCode = af.getPostalCode();
+        String country = af.getCountry();
+        Integer addressId = af.getAddressId();
+        utils.initialize();
+        Address updatedAddress = new Address(addressId, streetNumber, streetName, city, postalCode, country);
+        agendaManager.updateAddress(updatedAddress);
+        return new ActionForward("/showaddresses.do", true);
+    }
+
+    //Saves the updated address in the database
+    public ActionForward deleteAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        System.out.println("Delete Address");
+        int addressId = Integer.parseInt(request.getParameter("addressId"));
+        Address existingAddress = agendaManager.findAddressbyId(addressId);
+        agendaManager.deleteAddressById(existingAddress.getAddressId());
+        return new ActionForward("/showaddresses.do", true);
     }
 
 }
