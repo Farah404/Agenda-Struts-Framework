@@ -17,19 +17,19 @@
                 type="com.axyus.agendastruts.action.ShowAddresses"
                 validate="false"
                 scope="session">
-            <forward name="success" path="/jsp/addresses/addresses.jsp"/>
+            <forward name="success" path="/WEB-INF/jsp/addresses/addresses.jsp"/>
         </action>
  
         <!-- Example of Struts Dispatch Action : has the extra attribute parameter-->
         <action path="/addressaction"
                 type="com.axyus.agendastruts.action.AddressAction"
                 parameter="actionMethod"
-                name="Addressform"
+                name="AddressForm"
                 validate="false"
                 scope="session">
-            <forward name="addAddress" path="/jsp/addresses/addaddress"/>
-            <forward name="editaddress" path="/jsp/addresses/editaddress"/>
-            <forward name="deleteAddress" path="/jsp/addresses/deleteaddress"/>
+            <forward name="addAddress" path="/WEB-INF/jsp/addresses/addaddress.jsp"/>
+            <forward name="editAddress" path="/WEB-INF/jsp/addresses/editaddress"/>
+            <forward name="deleteAddress" path="/WEB-INF/jsp/addresses/deleteaddress"/>
         </action>
     </action-mappings>
 
