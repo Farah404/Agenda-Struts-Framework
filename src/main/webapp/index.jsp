@@ -1,17 +1,11 @@
-<%-- 
-    Document   : all-customers
-    Created on : 17 janv. 2023, 15:55:18
-    Author     : farah.gauduin
---%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Agenda Manager</title>
+        <title>Welcome to Agenda Web App</title>
         <style>
+            /* Style the body */
             body {
                 font-family: Arial;
                 margin: 0;
@@ -31,108 +25,94 @@
                 padding: 5%;
                 text-align: center;
             }
-            a {
-                all: unset;
-
+            .column {
+                float: left;
+                width: 33.33%;
+                padding: 10px;
+                height: 300px; /* Should be removed. Only for demonstration */
             }
-            table, th, td {
-                border: 1px solid;
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
             }
-
-            table {
-                width: 100%;
-            }
-            form {
-                width: 100%;
-                height: 100%;
-                border-radius: 5px;
-                align-items: center;
-                display: inline-block;
-                margin-bottom: 2%;
-            }
-            input{
-                width: 80%;
-                font: 16px system-ui;
-            }
-            .search-button{
-                background-color: #4CAF50; /* Green */
-                color: white;
-                padding: 5px 30px;
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 300px;
+                margin: auto;
                 text-align: center;
-                text-decoration: none;
+                font-family: arial;
+            }
+            .title {
+                color: grey;
+                font-size: 18px;
+            }
+            button {
+                border: none;
+                outline: 0;
                 display: inline-block;
-                font-size: 16px;
-                border-radius: 8px;
-                height: 100%;
+                padding: 8px;
+                color: white;
+                background-color: #000;
+                text-align: center;
                 cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+            }
+            a {
+                text-decoration: none;
+                font-size: 22px;
+                color: white;
+            }
+            button:hover, a:hover {
+                opacity: 0.7;
             }
         </style>
     </head>
     <body>
         <div class="header">
-            <h1> <a href="/" style="cursor: pointer">Welcome to your digital Agenda </a></h1>
+            <h1>Welcome to your digital Agenda</h1>
+            <p>Explore all your options below !</p>
         </div>
-        <div class="container">
-            <td>
-            <html:link style="cursor: pointer; color: blue" action="/createAddress.do">Create Address</html:link>
-            &nbsp;&nbsp;&nbsp;&nbsp; 
-            <html:link style="cursor: pointer; color: blue" action="/createCustomer.do">Create Customer</html:link><br />  <br />
-            </td>
-            <table>
-                <tr>
-                    <th>Customer Id</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Username</th>
-                    <th>Phone number</th>
-                    <th>Email</th>
-                    <th>Address Id</th>
-                    <th>Street Number</th>
-                    <th>Street Name</th>
-                    <th>City</th>
-                    <th>Postal Code</th>
-                    <th>Country</th>
-                </tr>
+        <div class="row container">
+            <div class="column">
 
-                <tr>
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                    <td>
-                        <p></p>
-                    </td> 
-                </tr>
-            </table>
-        </div>
+                <div class="card">
+                    <img src="https://standardbeagle.com/wp-content/uploads/2016/06/client-meeting.jpg" style="width:100%">
+                    <h1>Resgistered Customers</h1>
+                    <p class="title">View, update and delete</p>
+                    <div style="margin: 24px 0;">
+                    </div>
+                    <p><button><a href="/all-customers">Check Customers</a></button></p>
+                </div>
+
+            </div>
+            <div class="column">
+
+                <div class="card">
+                    <img src="https://static.vecteezy.com/system/resources/previews/001/977/224/original/gps-map-with-pin-illustration-free-vector.jpg"  style="width:100%">
+                    <h1>Registered Addresses</h1>
+                    <p class="title">View and search data</p>
+                    <div style="margin: 24px 0;">
+                    </div>
+                    <p><button><a href="showaddresses.do">Check Addresses</a></button></p>
+                </div>
+
+            </div>
+            <div class="column">
+
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8RSaCMCTAXNasW_pKiOxboRvqjZmPCmbcsNc-cQw1SYgb2hPERANwLeotZEfMqV4oSxM&usqp=CAU" style="width:100%">
+                    <h1>Manage your Agenda</h1>
+                    <p class="title">Add data</p>
+                    <div style="margin: 24px 0;">
+                    </div>
+                    <p><button><a href="/manage-agenda">Manage Agenda</a></button></p>
+                </div>
+
+            </div>
+        </div> 
+
     </body>
 </html>
