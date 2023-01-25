@@ -52,8 +52,9 @@ public class AddressAction extends DispatchAction {
 
     //Shows the update page
     public ActionForward editAddress(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws SQLException {
+            throws SQLException, IOException {
         System.out.println("Update Address Page");
+        utils.initialize();
         int addressId = Integer.parseInt(request.getParameter("addressId"));
         Address existingAddress = agendaManager.findAddressbyId(addressId);
         request.setAttribute("existingAddress", existingAddress);

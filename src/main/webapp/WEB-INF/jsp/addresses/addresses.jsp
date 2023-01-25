@@ -4,51 +4,132 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Iterator"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<!--    <header>
-        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/../css/style.css">
-    </header>-->
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Addresses List</title>
+        <style>
+            body {
+                font-family: Arial;
+                margin: 0;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            /* Header/Logo Title */
+            .header {
+                padding: 60px;
+                text-align: center;
+                background-image:url("https://plos.org/wp-content/uploads/2020/07/abstract-image_color-tone.jpg");
+                color: white;
+                font-size: 30px;
+            }
+            .container{
+                padding: 5%;
+                text-align: center;
+            }
+            a {
+                all: unset;
+            }
+            table, th, td {
+                border: 1px solid;
+            }
+            table {
+                width: 100%;
+            }
+            form {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                align-items: center;
+                display: inline-block;
+                margin-bottom: 2%;
+            }
+            input{
+                width: 80%;
+                font: 16px system-ui;
+            }
+            .search-button{
+                background-color: #4CAF50; /* Green */
+                color: white;
+                padding: 5px 30px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 8px;
+                height: 100%;
+                cursor: pointer;
+            }
+            
+            input{
+                width: 20%
+            }
+            .actions{
+                margin-bottom: 1%;
+                margin-left: 1%;
+            }
+        </style>
+    </head>
     <body>
-    <p><b>Struts Example - Simple Agenda App</b></p>
-    <b>Available Addresses</b>
-    <form name="addressform" action="/addressaction.do">
-        <table style="background-color:#82CAFA;">
-            <tr style="color:yellow;">
-                <th>&nbsp;</th>
-                <th>Street Number</th>
-                <th>Street Name</th>
-                <th>City</th>
-                <th>Postal Code</th>
-                <th>Country</th>
-            </tr>
-                    <%List <Address> addressesList = (ArrayList) request.getAttribute("addressesList");
-                          for(int i =0; i< addressesList.size(); i++){
-                          Address address = addressesList.get(i);
-                    %>
-            <tr><td><input type="radio" name="addressId" value='<%=address.getAddressId()%>' onclick="javascript:enableEditDelete();"></td>
-                <td><%=address.getStreetNumber()%></td>
-                <td><%=address.getStreetName()%></td>
-                <td><%=address.getCity()%></td>
-                 <td><%=address.getPostalCode()%></td>
-                 <td><%=address.getCountry()%></td>
-            </tr>
-            <%}%>
-        </table>
-    </p>
-    <p>
-    <table><tr>
-            <td><input type="submit" name="actionMethod" value="addAddress" /></td>
-            <td><input type="submit" name="actionMethod" id="editbutton" value="editAddress" disabled="true" /></td>
-            <td><input type="submit" name="actionMethod" id="deletebutton" value="deleteAddress" disabled="true" onclick="return checkDelete();" /></td>
-        </tr></table>
-</form>
+        <div class="header">
+            <h1> <a href="/strutsExample" style="cursor: pointer">Welcome to your digital Agenda </a></h1>
+            <p>Adrresses List</p>
+        </div>
+        <div class="container">
+        <form name="addressform" action="addressaction.do">
+            <div class="actions">
+                <input type="submit" name="actionMethod" value="addAddress" />
+                <input type="submit" name="actionMethod" id="editbutton" value="editAddress" disabled="true" />
+                <input type="submit" name="actionMethod" id="deletebutton" value="deleteAddress" disabled="true" onclick="return checkDelete();" />
+            </div>     
+            
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Street Number</th>
+                    <th>Street Name</th>
+                    <th>City</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                </tr>
+
+                <c:forEach items="${addressesList}" var="address">
+                    <tr>
+                        <td>
+                            <input type="radio" name="addressId" value="<c:out value="${address.addressId}"></c:out>" onclick="javascript:enableEditDelete();">
+                        </td>
+                        <td>
+                            <p><c:out value="${address.streetNumber}"></c:out></p>
+                        </td>
+                        <td>
+                            <p><c:out value="${address.streetName}"></c:out></p>
+                        </td>
+                        <td>
+                            <p><c:out value="${address.city}"></c:out></p>
+                        </td>
+                        <td>
+                            <p><c:out value="${address.postalCode}"></c:out></p>
+                        </td>
+                        <td>
+                            <p><c:out value="${address.country}"></c:out></p>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </p>
+        <p>
+
+    </form>
+        </div>
 </p>
 <script>
     function checkDelete() {
-        return confirm("Are u sure to delete this book..?");
+        return confirm("Are u sure you want to delete this address..?");
     }
     function enableEditDelete() {
         document.getElementById('editbutton').disabled = false;
