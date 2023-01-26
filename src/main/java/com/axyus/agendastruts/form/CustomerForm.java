@@ -20,7 +20,7 @@ public class CustomerForm extends ActionForm {
     private String email;
     private Integer phoneNumber;
     private Integer addressId;
-    private Address address;
+    private Address address = new Address();
 
     public Integer getCustomerId() {
         return customerId;

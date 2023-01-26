@@ -85,7 +85,7 @@
             <div class="actions">
                 <input type="submit" name="actionMethod" value="addCustomer" />
                 <input type="submit" name="actionMethod" id="editbutton" value="editCustomer" disabled="true" />
-                <input type="submit" name="actionMethod" id="deletebutton" value="deleteCustomer" disabled="true" onclick="return checkDelete();" />
+<!--                <input type="submit" name="actionMethod" id="deletebutton" value="deleteCustomer" disabled="true" onclick="return checkDelete();" />-->
             </div>
             <table>
                 <tr>
