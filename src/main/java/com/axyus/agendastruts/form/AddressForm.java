@@ -9,12 +9,13 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.validator.ValidatorForm;
 
 /**
  *
  * @author farah.gauduin
  */
-public class AddressForm extends ActionForm {
+public class AddressForm extends ValidatorForm {
 
     private Integer addressId;
     private Integer streetNumber;
@@ -27,19 +28,7 @@ public class AddressForm extends ActionForm {
             HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         if (streetName == null || streetName.length() < 1) {
-            errors.add("streetName", new ActionMessage("error.streetName.required"));
-        }
-        
-        if (city == null || city.length() < 1) {
-            errors.add("city", new ActionMessage("error.city.required"));
-        }
-        
-        if (postalCode == null || postalCode.length() < 1) {
-            errors.add("postalCode", new ActionMessage("error.postalCode.required"));
-        }
-        
-        if (country == null || country.length() < 1) {
-            errors.add("country", new ActionMessage("error.country.required"));
+            errors.add("streetName", new ActionMessage("err.address.streetName.required"));
         }
         return errors;
     }

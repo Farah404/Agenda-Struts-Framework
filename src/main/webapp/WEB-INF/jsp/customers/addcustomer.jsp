@@ -4,63 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
         <head>
-        <style>
-            body {
-                font-family: Arial;
-                margin: 0;
-            }
-            * {
-                box-sizing: border-box;
-            }
-            /* Header/Logo Title */
-            .header {
-                padding: 60px;
-                text-align: center;
-                background-image:url("https://plos.org/wp-content/uploads/2020/07/abstract-image_color-tone.jpg");
-                color: white;
-                font-size: 30px;
-            }
-            a {
-                all: unset;
-            }
-            label {
-                padding: 12px 12px 12px 0;
-                display: inline-block;
-                float: left;
-            }
-            input[type=submit] {
-                background-color: #04AA6D;
-                color: white;
-                padding: 12px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                width: 100%;
-            }
-            input[type=submit]:hover {
-                background-color: #45a049;
-            }
-            .container {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 2%;
-                text-align: center;
-                margin-left: 25%;
-                margin-right: 25%;
-                margin-top: 2%;
-                margin-bottom: 2%;
-                display: flex;
-                justify-content: center;
-            }
-            .label{
-                float: left;
-            }
-            table {
-                align-self: center;
-            }
-            th, td {
-                padding: 15px;
-            }
+                <style>
+            <%@include file="../../css/style.css" %>
         </style>
     </head>
     <body>

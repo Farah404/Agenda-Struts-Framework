@@ -5,62 +5,7 @@
 <html>
     <head>
         <style>
-            body {
-                font-family: Arial;
-                margin: 0;
-            }
-            * {
-                box-sizing: border-box;
-            }
-            /* Header/Logo Title */
-            .header {
-                padding: 60px;
-                text-align: center;
-                background-image:url("https://plos.org/wp-content/uploads/2020/07/abstract-image_color-tone.jpg");
-                color: white;
-                font-size: 30px;
-            }
-            a {
-                all: unset;
-            }
-            label {
-                padding: 12px 12px 12px 0;
-                display: inline-block;
-                float: left;
-            }
-            input[type=submit] {
-                background-color: #04AA6D;
-                color: white;
-                padding: 12px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                width: 100%;
-            }
-            input[type=submit]:hover {
-                background-color: #45a049;
-            }
-            .container {
-                border-radius: 5px;
-                background-color: #f2f2f2;
-                padding: 2%;
-                text-align: center;
-                margin-left: 25%;
-                margin-right: 25%;
-                margin-top: 2%;
-                margin-bottom: 2%;
-                display: flex;
-                justify-content: center;
-            }
-            .label{
-                float: left;
-            }
-            table {
-                align-self: center;
-            }
-            th, td {
-                padding: 15px;
-            }
+            <%@include file="../../css/style.css" %>
         </style>
     </head>
     <body>
@@ -68,7 +13,7 @@
             <h1> <a href="/strutsExample" style="cursor: pointer">Welcome to your digital Agenda </a></h1>
             <p><a>Update Address </a></p></div>
             <html:form>
-                 <div class="container">
+            <div class="container">
                 <table>
                     <tr>
                         <td class="label">Address ID</td>
@@ -95,11 +40,11 @@
                         <td class="value"><html:text property="country"/></td>
                     </tr>
                     <tr>
-                    <td><input type="submit" name="actionMethod" value="updateAddress" /></td>
-                </tr>
+                        <td><input type="submit" name="actionMethod" value="updateAddress" /></td>
+                    </tr>
                 </table>
-                 </div>
-            </html:form>
+            </div>
+        </html:form>
     </p>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+        
+<form-validation>
+    <formset>
+        <form name="AddressForm">
+            <field property="streetName" depends="required,maxlength,minlength,mask">
+                
+                <msg name="required" key="err.address.streetName.required" />
+                <msg name="maxlength" key="err.address.streetName.length" />
+                <msg name="minlength" key="err.address.streetName.length" />
+                <msg name="mask" key="err.address.streetName.invalid" />
+                        
+                <arg name="maxlength" key="${var:minlength}" position="0" resource="false"/>
+                <arg name="maxlength" key="${var:maxlength}" position="1" resource="false"/>
+            
+                <arg name="minlength" key="${var:minlength}" position="0" resource="false"/>
+                <arg name="minlength" key="${var:maxlength}" position="1" resource="false"/>
+                
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>15</var-value>
+                </var>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z0-9-_]*$</var-value>
+                </var>
+                
+            </field>
+            
+        </form>
+    </formset>
+</form-validation>
