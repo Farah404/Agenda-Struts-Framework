@@ -3,65 +3,71 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+    <head>
+               <style>
+            <%@include file="../../css/style.css" %>
+        </style>
+    </head>
     <body>
-        <p><b>Struts Example - Simple Agenda App</b></p>
-        <b>Update Customer</b>
+       <div class="header">
+            <h1> <a href="/strutsExample" style="cursor: pointer">Welcome to your digital Agenda </a></h1>
+            <p><a>Update Customer </a></p></div>
     <html:form>
-        <table style="background-color:#82CAFA;">
+        <div class="container">
+        <table>
             <tr>
-                <td>Customer ID</td>
+                <td class="label">Customer ID</td>
                 <td><html:text property="customerId" disabled="true"/></td>
             </tr>
             <tr>
-                <td>Last Name</td>
-                <td><html:text property="lastName"/></td>
+                <td class="label">Last Name</td>
+                <td class="value"><html:text property="lastName"/></td>
             </tr>
             <tr>
-                <td>First Name</td>
-                <td><html:text property="firstName"/></td>
+                <td class="label">First Name</td>
+                <td class="value"><html:text property="firstName"/></td>
             </tr>
             <tr>
-                <td>Username</td>
-                <td><html:text property="username"/></td>
+                <td class="label">Username</td>
+                <td class="value"><html:text property="username"/></td>
             </tr>
             <tr>
-                <td>Email</td>
-                <td><html:text property="email"/></td>
+                <td class="label">Email</td>
+                <td class="value"><html:text property="email"/></td>
             </tr>
             <tr>
-                <td>Phone Number</td>
-                <td><html:text property="phoneNumber"/></td>
+                <td class="label">Phone Number</td>
+                <td class="value"><html:text property="phoneNumber"/></td>
             </tr>
             <tr>
-                <td>Address ID</td>
-                <td><html:text property="address.addressId" disabled="true"/></td>
+                <td class="label">Address ID</td>
+                <td class="value"><html:text property="address.addressId" disabled="true"/></td>
             </tr>
             <tr>
-                <td>Street Number</td>
-                <td><html:text property="address.streetNumber"/></td>
+                <td class="label">Street Number</td>
+                <td class="value"><html:text property="address.streetNumber"/></td>
             </tr>
             <tr>
-                <td>Street Name</td>
-                <td><html:text property="address.streetName"/></td>
+                <td class="label">Street Name</td>
+                <td class="value"><html:text property="address.streetName"/></td>
             </tr>
             <tr>
-                <td>City</td>
-                <td><html:text property="address.city"/></td>
+                <td class="label">City</td>
+                <td class="value"><html:text property="address.city"/></td>
             </tr>
             <tr>
-                <td>Postal Code</td>
-                <td><html:text property="address.postalCode"/></td>
+                <td class="label">Postal Code</td>
+                <td class="value"><html:text property="address.postalCode"/></td>
             </tr>
             <tr>
-                <td>Country</td>
-                <td><html:text property="address.country"/></td>
+                <td class="label">Country</td>
+                <td class="value"><html:text property="address.country"/></td>
             </tr>
-        </table>
-    </p>
-    <p>
-    <table><tr>
+            <tr>
             <td><input type="submit" name="actionMethod" value="updateCustomer" /></td>
-        </tr></table>
+        </tr>
+        </table>
+        </div>
 </html:form>
 </p>
 </body>

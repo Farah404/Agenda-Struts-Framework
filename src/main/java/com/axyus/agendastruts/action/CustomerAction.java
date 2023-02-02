@@ -7,7 +7,6 @@ package com.axyus.agendastruts.action;
 import com.axyus.agendastruts.bll.AgendaManager;
 import com.axyus.agendastruts.bo.Address;
 import com.axyus.agendastruts.bo.Customer;
-import com.axyus.agendastruts.form.AddressForm;
 import com.axyus.agendastruts.form.CustomerForm;
 import com.axyus.agendastruts.utils.Utils;
 import java.io.IOException;
@@ -51,6 +50,7 @@ public class CustomerAction extends DispatchAction {
         Address address = new Address(streetNumber, streetName, city, postalCode, country);
         address.setAddressId(0);
         agendaManager.createAddress(address);
+        request.setAttribute("address", address);
 
         //create customer
         Integer customerId = 0;
@@ -62,6 +62,8 @@ public class CustomerAction extends DispatchAction {
         Address affectedAddress = agendaManager.getLastAddress();
         Integer addressId = affectedAddress.getAddressId();
         Customer customer = new Customer(lastName, firstName, username, email, phoneNumber, addressId);
+        agendaManager.createCustomer(customer);
+         request.setAttribute("customer", customer);
         
         return new ActionForward("/showcustomers.do", true);
     }
@@ -93,6 +95,7 @@ public class CustomerAction extends DispatchAction {
             throws SQLException, IOException {
         System.out.println("Update Customer");
         CustomerForm cf = (CustomerForm) form;
+        Integer customerId = cf.getCustomerId();
         String lasName = cf.getLastName();
         String firstName = cf.getFirstName();
         String username = cf.getUsername();
@@ -105,17 +108,17 @@ public class CustomerAction extends DispatchAction {
         String country = cf.getAddress().getCountry();
         Integer addressId = cf.getAddress().getAddressId();
         utils.initialize();
-        Customer updatedcustomer = new Customer(lasName, firstName, username, email, phoneNumber);
+        Customer updatedCustomer = new Customer(customerId,lasName, firstName, username, email, phoneNumber, addressId);
         Address updatedAddress = new Address(addressId, streetNumber, streetName, city, postalCode, country);
         agendaManager.updateAddress(updatedAddress);
-        agendaManager.updateCustomer(updatedcustomer);
+        agendaManager.updateCustomer(updatedCustomer);
         return new ActionForward("/showcustomers.do", true);
     }
     
         //Delete customer from database
     public ActionForward deleteCustomer(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        System.out.println("Delete Address");
+        System.out.println("Delete Customer");
         int customerId = Integer.parseInt(request.getParameter("customerId"));
         Customer existinCustomer = agendaManager.findCustomerbyId(customerId);
         agendaManager.deleteById(existinCustomer.getAddressId());

@@ -80,8 +80,8 @@
 
                 <div class="card">
                     <img src="https://standardbeagle.com/wp-content/uploads/2016/06/client-meeting.jpg" style="width:100%">
-                    <h1>Resgistered Customers</h1>
-                    <p class="title">View, update and delete</p>
+                    <h1>Manage Customers</h1>
+                    <p class="title">View, add, update and delete</p>
                     <div style="margin: 24px 0;">
                     </div>
                     <p><button><a href="showcustomers.do">Check Customers</a></button></p>
@@ -92,8 +92,8 @@
 
                 <div class="card">
                     <img src="https://static.vecteezy.com/system/resources/previews/001/977/224/original/gps-map-with-pin-illustration-free-vector.jpg"  style="width:100%">
-                    <h1>Registered Addresses</h1>
-                    <p class="title">View and search data</p>
+                    <h1>Manage Addresses</h1>
+                    <p class="title">View, add, update and delete</p>
                     <div style="margin: 24px 0;">
                     </div>
                     <p><button><a href="showaddresses.do">Check Addresses</a></button></p>
