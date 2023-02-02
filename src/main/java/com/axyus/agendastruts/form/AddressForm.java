@@ -15,7 +15,7 @@ import org.apache.struts.validator.ValidatorForm;
  *
  * @author farah.gauduin
  */
-public class AddressForm extends ValidatorForm {
+public class AddressForm extends ValidatorForm  {
 
     private Integer addressId;
     private Integer streetNumber;
@@ -24,15 +24,16 @@ public class AddressForm extends ValidatorForm {
     private String postalCode;
     private String country;
 
-    public ActionErrors validate(ActionMapping mapping,
-            HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-        if (streetName == null || streetName.length() < 1) {
-            errors.add("streetName", new ActionMessage("err.address.streetName.required"));
-        }
-        return errors;
-    }
+//  public ActionErrors validate(ActionMapping mapping,
+//      HttpServletRequest request) {
+//    ActionErrors errors = new ActionErrors();
+//
+//    if (streetName == null || streetName.length() == 0) {
+//      errors.add("streetName", new ActionMessage("userId.not.entered"));
+//    }
 
+//    return errors;
+//  }
     public Integer getAddressId() {
         return addressId;
     }

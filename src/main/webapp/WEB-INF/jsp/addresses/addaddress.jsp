@@ -15,10 +15,9 @@
             <p><a>Create Address </a></p>
 
         </div>
-        <font color="red">
-            <html:errors/>
-        </font>
-        <html:form>
+            
+            
+        <html:form method="post" onsubmit="return validateAddressForm(this)">
             <div class="container">
                 <table>
                     <tr>
@@ -45,6 +44,7 @@
                         <td><input type="submit" name="actionMethod" value="saveAddress" /></td>
                     </tr>
                 </table>
+                        <html:javascript formName="AddressForm" />
             </html:form>
         </div>
     </body>
